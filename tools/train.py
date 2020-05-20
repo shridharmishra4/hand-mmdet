@@ -24,6 +24,8 @@ def parse_args():
     parser.add_argument(
         '--resume_from', help='the checkpoint file to resume from')
     parser.add_argument(
+        '--load_from', help='the checkpoint file to load from')
+    parser.add_argument(
         '--validate',
         action='store_true',
         help='whether to evaluate the checkpoint during training')
@@ -67,6 +69,8 @@ def main():
         cfg.work_dir = args.work_dir
     if args.resume_from is not None:
         cfg.resume_from = args.resume_from
+    if args.load_from is not None: 
+        cfg.load_from = args.load_from
     cfg.gpus = args.gpus
 
     if args.autoscale_lr:

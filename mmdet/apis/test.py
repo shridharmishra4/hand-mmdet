@@ -23,8 +23,8 @@ def single_gpu_test(model, data_loader, show=False):
             model.module.show_result(data, result)
 
         batch_size = data['img'][0].size(0)
-        for _ in range(batch_size):
-            prog_bar.update()
+        # for _ in range(batch_size):
+        #     prog_bar.update()
     return results
 
 

@@ -42,6 +42,7 @@ class CustomDataset(Dataset):
                  seg_prefix=None,
                  proposal_file=None,
                  test_mode=False,
+                 class_agnostic=True,
                  filter_empty_gt=True):
         self.ann_file = ann_file
         self.data_root = data_root
@@ -50,6 +51,7 @@ class CustomDataset(Dataset):
         self.proposal_file = proposal_file
         self.test_mode = test_mode
         self.filter_empty_gt = filter_empty_gt
+        self.class_agnostic = class_agnostic
 
         # join paths if data_root is specified
         if self.data_root is not None:

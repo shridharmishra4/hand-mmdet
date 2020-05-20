@@ -1,6 +1,9 @@
 from .builder import build_dataset
 from .cityscapes import CityscapesDataset
 from .coco import CocoDataset
+from .duplo import DuploDataset
+from .egohands import EgoHandsDataset
+from .hand import HandDataset
 from .custom import CustomDataset
 from .dataset_wrappers import ConcatDataset, RepeatDataset
 from .loader import DistributedGroupSampler, GroupSampler, build_dataloader
@@ -10,8 +13,8 @@ from .wider_face import WIDERFaceDataset
 from .xml_style import XMLDataset
 
 __all__ = [
-    'CustomDataset', 'XMLDataset', 'CocoDataset', 'VOCDataset',
+    'CustomDataset', 'XMLDataset', 'CocoDataset', 'DuploDataset', 'EgoHandsDataset', 'VOCDataset',
     'CityscapesDataset', 'GroupSampler', 'DistributedGroupSampler',
     'build_dataloader', 'ConcatDataset', 'RepeatDataset', 'WIDERFaceDataset',
-    'DATASETS', 'build_dataset'
+    'DATASETS', 'build_dataset', 'HandDataset'
 ]
