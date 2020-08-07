@@ -1,4 +1,5 @@
 # model settings
+version = 0.05
 model = dict(
     type='FasterRCNN',
     pretrained='torchvision://resnet50',
@@ -100,7 +101,7 @@ test_cfg = dict(
 )
 # dataset settings
 dataset_type = 'HandDataset'
-data_root = 'data/hand/'
+data_root = "../../data/data_{}/".format(version)
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
@@ -133,19 +134,19 @@ data = dict(
     workers_per_gpu=8,
     train=dict(
         type=dataset_type,
-        ann_file=data_root + 'train.json',
-        img_prefix=data_root + 'train_images/',
+        ann_file=data_root + 'train/annotation/train.json',
+        img_prefix=data_root + 'train/images/',
         class_agnostic=False,
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        ann_file=data_root + 'val.json',
-        img_prefix=data_root + 'valid_images/',
+        ann_file=data_root + 'val/annotation/val.json',
+        img_prefix=data_root + 'val/images/',
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
-        ann_file=data_root + 'val.json',
-        img_prefix=data_root + 'valid_images/',
+        ann_file=data_root + 'val/annotation/val.json',
+        img_prefix=data_root + 'val/images/',
         pipeline=test_pipeline))
 evaluation = dict(interval=1, metric='bbox')
 # optimizer
@@ -168,7 +169,7 @@ log_config = dict(
     ])
 # yapf:enable
 # runtime settings
-total_epochs = 36
+total_epochs = 10
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 work_dir = './work_dirs/faster_rcnn_r50_fpn_1x'

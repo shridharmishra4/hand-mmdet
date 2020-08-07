@@ -1,5 +1,5 @@
-source /scratch/cluster-share/nguyenkh/miniconda3/bin/activate
-conda activate mmdet-duplo
+#source /scratch/cluster-share/nguyenkh/miniconda3/bin/activate
+#conda activate mmdet-duplo
 
 
 for epoch in {1..36} 
